@@ -1,0 +1,268 @@
+/* =======================
+   GLOBAL STYLES (HOME)
+======================= */
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #f8f5f2;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    color: #D7CCC8;
+    padding: 30px;
+    background: linear-gradient(90deg, #3E2723, #5D4037);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-brand{
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 999px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+/* Hero */
+.hero {
+    height: 60vh;
+    background: url('Images/download.jpg') no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffa726;
+    padding: 10px;
+}
+
+.hero-text h2 {
+    font-size: 26px;
+}
+
+.hero-text p {
+    font-size: 14px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    background: #ffcc80;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ffa726;
+}
+
+/* Features */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    width: 220px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+/* About */
+.about {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Drinks / Hours / Reviews background */
+.drinks, .hours, .reviews {
+    background-image: url('Images/download2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+/* Drinks */
+.drinks {
+    padding: 30px;
+    text-align: center;
+    color: #ffa726;
+}
+
+.drink-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.drink {
+    background: white;
+    padding: 10px;
+    width: 180px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.drink img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.drink:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Hours */
+.hours {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Reviews */
+.reviews {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background: #3e2723;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* =======================
+   MENU PAGE ONLY (SCOPED)
+======================= */
+
+.menu-page {
+    font-family: 'Georgia', serif;
+    background: #f5efe6;
+    color: #3e2c23;
+}
+
+.menu-page .menu-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fffaf3;
+    border: 2px solid #d2b48c;
+    border-radius: 12px;
+}
+
+.menu-page .title {
+    text-align: center;
+    font-size: 52px;
+}
+
+.menu-page .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.menu-page .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+    transition: 0.2s;
+}
+
+.menu-page .item:hover {
+    transform: scale(1.03);
+    color: #a0522d;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* MOBILE */
+@media (max-width: 900px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px;
+        border-top: 1px solid rgba(255,255,255,0.12);
+    }
+}

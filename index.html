@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="Conctact.js" defer></script>
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav class="top-bar">
+        <h1 class="nav-brand">The Espresso</h1>
+        <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <!-- Contact Form Section -->
+        <!-- Link to Web3Forms API for form submission functionality -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <div class="contact-title">
+                <h1>Connect With Us</h1>
+                <hr>
+            </div>
+            <input type="hidden" name="access_key" value="319c5b54-0571-480c-8f35-821b3651e993">
+            <input id ="name" type="text" name="name" placeholder="Enter Your Name" class="user-inputs" required>
+            <input id ="email" type="email" name="email" placeholder="Enter Your Email" class="user-inputs" required>
+            <input id ="phone" type="tel" name="phone" placeholder="Enter Your Phone Number" class="user-inputs">
+            <textarea id="message" name="message" placeholder="Your Message" class="user-inputs textarea" required></textarea>
+            
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+        <!-- Contact Info Section -->
+        <div class="info-and-image">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>Location</h3>
+                    <p>Coffee Shop<br>Belfast, Northern Ireland</p>
+                </div>
+                <div class="info-card">
+                    <h3>Email</h3>
+                    <p>YourEsprosso@Gmail.com</p>
+                </div>
+                <div class="info-card">
+                    <h3>Phone</h3>
+                    <p>+44 123-4567</p>
+                </div>
+            </div>
+            <img src="Images/Coffee.png" alt="Coffee" class="coffee-image">
+        </div>
+    </div>
+</body>
+</html>

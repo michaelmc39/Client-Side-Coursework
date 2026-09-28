@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Espresso</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background-color: #f5f0e8;
+            color: #3b1f1f;
+        }
+
+        /* ════════════════════════════════
+           NAVBAR
+        ════════════════════════════════ */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 0;
+            color: #D7CCC8;
+            padding: 40px;
+            background: linear-gradient(90deg, #3E2723, #5D4037);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .nav-brand {
+            font-size: 24px;
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 999px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-links li a:hover { 
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        .nav-links li a.active { color: #c9a84c; }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ════════════════════════════════
+           HERO
+        ════════════════════════════════ */
+        .hero {
+            position: relative;
+            height: 380px;
+            background-image: url('https://picsum.photos/seed/coffee-beans/1600/600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(30, 10, 5, 0.65);
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            color: #c9a84c;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: #f0e6d3;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ════════════════════════════════
+           MAIN
+        ════════════════════════════════ */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* ════════════════════════════════
+           OUR STORY
+        ════════════════════════════════ */
+        .story-section {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        .story-section img {
+            width: 420px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .story-text h2 {
+            font-size: 30px;
+            color: #c9a84c;
+            margin-bottom: 16px;
+        }
+
+        .story-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #4a2e2e;
+            margin-bottom: 12px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ════════════════════════════════
+           VALUES
+        ════════════════════════════════ */
+        .values-section {
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .values-section h2 {
+            font-size: 30px;
+            color: #c9a84c;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #7a5c4e;
+            margin-bottom: 36px;
+            font-family: Arial, sans-serif;
+        }
+
+        .values-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .value-card {
+            background-color: #ffffff;
+            border-top: 4px solid #c9a84c;
+            padding: 28px 20px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            color: #3b1f1f;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: #6b4c3b;
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ════════════════════════════════
+           TEAM
+        ════════════════════════════════ */
+        .team-section {
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 30px;
+            color: #c9a84c;
+            margin-bottom: 10px;
+        }
+
+        .team-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            width: 220px;
+            text-align: center;
+        }
+
+        .team-card img {
+            width: 220px;
+            height: 260px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            display: block;
+            border: 3px solid #c9a84c;
+        }
+
+        .team-card h3 {
+            font-size: 17px;
+            color: #3b1f1f;
+            margin-bottom: 4px;
+        }
+
+        .team-card .role {
+            font-size: 13px;
+            color: #c9a84c;
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .team-card p {
+            font-size: 13px;
+            color: #6b4c3b;
+            line-height: 1.5;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ════════════════════════════════
+           STATS BANNER
+        ════════════════════════════════ */
+        .stats-banner {
+            background-color: #3b1f1f;
+            padding: 50px 30px;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .stats-banner h2 {
+            color: #c9a84c;
+            font-size: 26px;
+            margin-bottom: 36px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item { min-width: 100px; }
+
+        .stat-item .number {
+            font-size: 44px;
+            color: #c9a84c;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 14px;
+            color: #f0e6d3;
+            font-family: Arial, sans-serif;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ════════════════════════════════
+           FAQ
+        ════════════════════════════════ */
+        .faq-section { margin-bottom: 70px; }
+
+        .faq-section h2 {
+            font-size: 30px;
+            color: #c9a84c;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .faq-item { border-bottom: 1px solid #d9c9b0; }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 18px 0;
+            font-size: 16px;
+            color: #3b1f1f;
+            font-family: Georgia, serif;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-question:hover { color: #c9a84c; }
+
+        .faq-indicator {
+            font-size: 22px;
+            color: #c9a84c;
+            font-family: Arial, sans-serif;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #6b4c3b;
+            line-height: 1.7;
+            font-family: Arial, sans-serif;
+            padding-bottom: 16px;
+            display: none;
+        }
+
+        .faq-answer.open { display: block; }
+
+        /* ════════════════════════════════
+           CTA
+        ════════════════════════════════ */
+        .cta-section {
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            color: #c9a84c;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            color: #4a2e2e;
+            margin-bottom: 24px;
+            font-family: Arial, sans-serif;
+        }
+
+        .cta-btn {
+            background-color: #c9a84c;
+            color: #3b1f1f;
+            border: none;
+            padding: 12px 36px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover { background-color: #b8942e; }
+
+        /* ════════════════════════════════
+           FOOTER
+        ════════════════════════════════ */
+        footer {
+            background-color: #3b1f1f;
+            color: #f0e6d3;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ════════════════════════════════
+           RESPONSIVE — TABLET (max 900px)
+        ════════════════════════════════ */
+        @media (max-width: 900px) {
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 10px;
+                border-top: 1px solid rgba(255,255,255,0.12);
+            }
+
+            main { padding: 40px 24px; }
+
+            .story-section {
+                flex-direction: column;
+                gap: 28px;
+                margin-bottom: 50px;
+            }
+
+            .story-section img {
+                width: 100%;
+                height: 240px;
+                flex-shrink: unset;
+            }
+
+            .value-card { width: calc(50% - 10px); }
+
+            .team-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .team-card img {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        /* ════════════════════════════════
+           RESPONSIVE — MOBILE (max 600px)
+        ════════════════════════════════ */
+        @media (max-width: 600px) {
+
+            .hero { height: 260px; }
+            .hero-content h1 { font-size: 28px; }
+            .hero-content p { font-size: 14px; }
+
+            main { padding: 30px 16px; }
+
+            .story-section img { height: 200px; }
+            .story-text h2 { font-size: 24px; }
+
+            .value-card { width: 100%; }
+
+            .stats-banner { padding: 36px 16px; }
+            .stats-banner h2 { font-size: 20px; }
+            .stats-grid { gap: 24px; }
+
+            .stat-item { width: calc(50% - 12px); }
+            .stat-item .number { font-size: 32px; }
+
+            .faq-question { font-size: 14px; padding: 14px 0; }
+            .cta-section h2 { font-size: 22px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-brand">The Espresso</div>
+        <button class="menu-toggle" id="menuToggle">&#9776;</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href= "Menu.html">Menu</a></li>
+            <li><a href="index.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Our Story</h1>
+            <p>Passionate about coffee, dedicated to community. Discover the people and values behind every cup.</p>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Our Story -->
+        <section class="story-section">
+            <img src="https://picsum.photos/seed/coffeecafe/800/600" alt="Interior of The Espresso cafe">
+            <div class="story-text">
+                <h2>How It All Began</h2>
+                <p>The Espresso was founded in 2026 by a group of friends who love coffee. The shop started as a small café in the middle of Belfast and quickly turned into a small community.</p>
+                <p>We source our beans from sustainable farms in Colombia, Ethiopia, and Guatemala as this builds a lasting relationship with growers who care as much about quality as we do.</p>
+                <p>Small details make a big difference in coffee like the water temperature and the way it's poured. We put a lot of time and effort into how our coffee is made.</p>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="values-section">
+            <h2>What We Stand For</h2>
+            <p class="subtitle">Four principles guide everything we do</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Quality</h3>
+                    <p>All our beans are hand-selected and every espresso shot is poured carefully.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Community</h3>
+                    <p>This café is a place for customers to relax and enjoy a coffee.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Sustainability</h3>
+                    <p>We use compostable cups and make choices that are good for the planet.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Craft</h3>
+                    <p>Our baristas train for months before serving their first espresso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Team -->
+        <section class="team-section">
+            <h2>Meet the Team</h2>
+            <p class="subtitle">The passionate people behind your daily brew</p>
+            <div class="team-grid">
+
+                <div class="team-card">
+                    <!--
+                        Free portrait from randomuser.me — real photo of a person.
+                        Numbers (32, 75, 44) select different people from their library.
+                        These load fine when you open the file in a browser with internet.
+                    -->
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                         alt="James Harlow - Co-Founder and Head Roaster">
+                    <h3>James Harlow</h3>
+                    <p class="role">Co-Founder &amp; Head Roaster</p>
+                    <p>James has spent over a decade travelling the world's coffee regions to find the finest beans.</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg"
+                         alt="Lewis Smith - Co-Founder and Cafe Director">
+                    <h3>Lewis Smith</h3>
+                    <p class="role">Co-Founder &amp; Café Director</p>
+                    <p>Lewis's background in hospitality ensures every guest feels genuinely welcomed the moment they walk in.</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="https://randomuser.me/api/portraits/men/44.jpg"
+                         alt="Diarmuid O'Hanlon - Head Barista">
+                    <h3>Diarmuid O'Hanlon</h3>
+                    <p class="role">Head Barista</p>
+                    <p>Diarmuid trains our baristas and develops our seasonal espresso menu.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stats Banner -->
+        <section class="stats-banner">
+            <h2>The Espresso by the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="number" id="yearsCount">0</span>
+                    <span class="label">Years of Service</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number" id="cupsCount">0</span>
+                    <span class="label">Cups Served Daily</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number" id="beansCount">0</span>
+                    <span class="label">Bean Origins</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number" id="staffCount">0</span>
+                    <span class="label">Team Members</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <p class="subtitle">A few things our guests often ask</p>
+
+            <div class="faq-item">
+                <button class="faq-question" id="btn0">
+                    Where do you source your coffee beans?
+                    <span class="faq-indicator" id="ind0">+</span>
+                </button>
+                <p class="faq-answer" id="ans0">We source directly from sustainable farms in Colombia, Ethiopia, and Guatemala. We visit our partner farms annually to maintain quality standards and ensure fair pay for all growers.</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" id="btn1">
+                    Do you offer dairy-free milk alternatives?
+                    <span class="faq-indicator" id="ind1">+</span>
+                </button>
+                <p class="faq-answer" id="ans1">Absolutely. We offer oat, almond, soy, and coconut milk at no extra charge. Our baristas are trained to steam each alternative to its ideal temperature for the best flavour.</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" id="btn2">
+                    Can I buy your coffee beans to take home?
+                    <span class="faq-indicator" id="ind2">+</span>
+                </button>
+                <p class="faq-answer" id="ans2">Yes! We sell whole bean and ground coffee in 250g and 500g bags at the counter.</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" id="btn3">
+                    Do you cater for private events?
+                    <span class="faq-indicator" id="ind3">+</span>
+                </button>
+                <p class="faq-answer" id="ans3">We offer catering in our shop for private functions and events.</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Come Say Hello</h2>
+            <p>We are open Monday to Sunday, 7am – 5pm. Come in, pull up a chair, and let us make you something special.</p>
+            <a href="contact.html" class="cta-btn">Find Us</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 The Espresso. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+        // ── Mobile hamburger toggle ──────────────────────────────────────
+        var menuToggle = document.getElementById("menuToggle");
+        var navLinks = document.getElementById("navLinks");
+
+        function toggleMenu() {
+            if (navLinks.className === "nav-links") {
+                navLinks.className = "nav-links open";
+            } else {
+                navLinks.className = "nav-links";
+            }
+        }
+
+        menuToggle.onclick = function() {
+            toggleMenu();
+        };
+
+        // ── FAQ Accordion ────────────────────────────────────────────────
+        var faqIds = ["0", "1", "2", "3"];
+
+        function toggleFaq(id) {
+            var answer = document.getElementById("ans" + id);
+            var indicator = document.getElementById("ind" + id);
+
+            for (var i = 0; i < faqIds.length; i++) {
+                var otherId = faqIds[i];
+                if (otherId !== id) {
+                    document.getElementById("ans" + otherId).className = "faq-answer";
+                    document.getElementById("ind" + otherId).textContent = "+";
+                }
+            }
+
+            if (answer.className === "faq-answer open") {
+                answer.className = "faq-answer";
+                indicator.textContent = "+";
+            } else {
+                answer.className = "faq-answer open";
+                indicator.textContent = "−";
+            }
+        }
+
+        for (var i = 0; i < faqIds.length; i++) {
+            (function(id) {
+                document.getElementById("btn" + id).onclick = function() {
+                    toggleFaq(id);
+                };
+            })(faqIds[i]);
+        }
+
+        // ── Animated counters ────────────────────────────────────────────
+        var targets = [1, 150, 8, 24];
+        var counterIds = ["yearsCount", "cupsCount", "beansCount", "staffCount"];
+        var current = [0, 0, 0, 0];
+
+        function animateCounters() {
+            var allDone = true;
+            for (var i = 0; i < targets.length; i++) {
+                if (current[i] < targets[i]) {
+                    allDone = false;
+                    current[i] = current[i] + 1;
+                    document.getElementById(counterIds[i]).textContent = current[i];
+                }
+            }
+            if (allDone === false) {
+                setTimeout(animateCounters, 25);
+            }
+        }
+
+        window.onload = function() {
+            setTimeout(animateCounters, 400);
+        };
+
+    </script>
+
+</body>
+</html>
